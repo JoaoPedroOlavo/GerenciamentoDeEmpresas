@@ -1,0 +1,260 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    background-color: #1d1d1d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+#navbar a:hover {
+    background-color: white;
+    color: #1d1d1d;
+    border-radius: 5px;
+}
+
+#navbar a.active {
+    background-color: white;
+    color: #1d1d1d;
+    border-radius: 5px;
+}
+
+#navbar #logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    margin-left: 20px;
+}
+
+#navbar #buttons {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+#navbar #buttons a:not(:last-child) {
+    margin-right: 20px;
+}
+
+#navbar #login-button {
+    background-color: #0088cc;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+#navbar #login-button:hover {
+    background-color: white;
+    color: #0088cc;
+    cursor: pointer;
+    border: 2px solid #0088cc;
+}
+
+
+#header {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#header h1 {
+    color: white;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+#header p {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+#header #button {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#header #button:hover {
+    background-color: black;
+    color: white;
+}
+
+#header #button:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    opacity: 0.5;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+#header #button:hover:before {
+    transform: scaleX(1);
+}
+
+#header #button span {
+    position: relative;
+    z-index: 1;
+}
+
+main {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+section {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    margin: 20px;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+}
+
+.icone {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+}
+
+#financeiro {
+    border: 2px solid #5cd65c;
+}
+
+#pessoal {
+    border: 2px solid #ff9933;
+}
+
+#logistica {
+    border: 2px solid #3399ff;
+}
+
+#quemsomos {
+    text-align: center;
+}
+
+#quemsomos h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+#quemsomos p {
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #222222;
+    color: #ffffff;
+    padding: 20px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.social-icons li:first-child {
+    margin-left: 0;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.social-icons a:hover {
+    color: #999999;
+}
+
+.social-icons i {
+    vertical-align: middle;
+    display: inline-block;
+    padding: 5px;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover i {
+    color: #999999;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col-md-6 {
+    width: 50%;
+}
