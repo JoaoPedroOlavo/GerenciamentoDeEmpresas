@@ -1,0 +1,23 @@
+{
+  "name": "tcc_",
+  "version": "1.0.0",
+  "description": "apenas um projeto de tcc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoPedroOlavo/GerenciamentoDeEmpresas.git"
+  },
+  "author": "joaopedro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaoPedroOlavo/GerenciamentoDeEmpresas/issues"
+  },
+  "homepage": "https://github.com/JoaoPedroOlavo/GerenciamentoDeEmpresas#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
