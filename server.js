@@ -34,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware para carregar css da pagina
 app.use(express.static('pagina_cadastro'));
 app.use(express.static('pagina_inicial'));
+app.use(express.static('pagina_login'));
 
 // Rota para lidar com o cadastro do usuário
 app.post('/cadastro', (req, res) => {
@@ -58,6 +59,10 @@ app.get('/inicio_pagina', (req, res) => {
     res.sendFile(__dirname + '/pagina_inicial/initial_page.html');
 });
 
+// Rota para servir a página de login
+app.get('/login_pagina', (req, res) => {
+    res.sendFile(__dirname + '/pagina_login/login_page.html');
+});
 
 // Inicia o servidor na porta 3000
 app.listen(3000, () => {

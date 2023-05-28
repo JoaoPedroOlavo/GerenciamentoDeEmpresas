@@ -1,7 +1,7 @@
 /* Estilos para o body */
 body {
-    background-color: #FFFFFF;
-    font-family: Roboto, sans-serif;
+    background-color: #F5F5F5;
+    font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
 }
@@ -13,7 +13,7 @@ body {
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 /* Estilos para o cabeçalho */
@@ -42,10 +42,9 @@ body {
 }
 
 .textbox input {
-    width: calc(100% - 40px);
-    /* ajuste de largura */
+    width: calc(100% - 40px); /* ajuste de largura */
     padding: 12px 20px;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 20px;
     background-color: #F5F5F5;
     color: #333333;
@@ -55,29 +54,28 @@ body {
 
 .textbox input:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
 /* Estilos para o botão de cadastro */
 .btn {
     display: block;
-    width: calc(100% - 1px);
-    /* ajuste de largura */
+    width: calc(100% - 1px); /* ajuste de largura */
     padding: 12px 20px;
     border: none;
     border-radius: 20px;
     background-color: #333333;
     color: #FFFFFF;
     font-size: 16px;
-    font-weight: bold
+    font-weight:bold
 }
-
-.btn:hover {
+  
+  .btn:hover {
     background-color: #222222;
-}
-
-/* Estilos para o botão de voltar */
-.back-btn {
+  }
+  
+  /* Estilos para o botão de voltar */
+  .back-btn {
     display: block;
     margin-top: 20px;
     color: #333333;
@@ -85,25 +83,9 @@ body {
     font-weight: bold;
     text-decoration: none;
     text-align: center;
-}
-
-.back-btn i {
+  }
+  
+  .back-btn i {
     margin-right: 5px;
-}
-
-/* Added social media login buttons */
-.container .btn-facebook {
-    background-color: #3b5998;
-    color: #ffffff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 20px;
-}
-
-.container .btn-google {
-    background-color: #4285f4;
-    color: #ffffff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 20px;
-}
+  }
+  
