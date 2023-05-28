@@ -1,16 +1,44 @@
 function inserirEmpresa(nome_empresa, cnpj_empresa, telefone_empresa, email_empresa, senha, res) {
-    const query = "INSERT INTO empresas (nome_empresa, cnpj_empresa, telefone_empresa, email_empresa, senha) VALUES (?, ?, ?, ?, ?);";
-    db.query(query, [nome_empresa, cnpj_empresa, telefone_empresa, email_empresa, senha], (err, result) => {
+    bcrypt.hash(senha, saltRounds, function (err, hash) {
+        const query = "INSERT INTO empresas (nome_empresa, cnpj_empresa, telefone_empresa, email_empresa, senha) VALUES (?, ?, ?, ?, ?);";
+        db.query(query, [nome_empresa, cnpj_empresa, telefone_empresa, email_empresa, hash], (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.redirect('/inicio_pagina')
+            console.log("Empresa inserida com sucesso!");
+        });
+    });
+}
+
+function verificarLogin(email, senha, res) {
+    const query = "SELECT * FROM empresas WHERE email_empresa = ?;";
+    db.query(query, [email], (err, results) => {
         if (err) {
             throw err;
         }
-        res.redirect('/inicio_pagina')
-        console.log("Empresa inserida com sucesso!");
+
+        if (results.length > 0) {
+            bcrypt.compare(senha, results[0].senha, (err, result) => {
+                if (result) {
+                    console.log("Login bem-sucedido!");
+                    res.redirect('/inicio_pagina');
+                } else {
+                    console.log("Senha incorreta!");
+                    res.send('Senha incorreta!');
+                }
+            });
+        } else {
+            console.log("Email não encontrado!");
+            res.send('Email não encontrado!');
+        }
     });
 }
 
 const express = require('express');
 const mysql = require('mysql');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const app = express();
 
 // Configuração do banco de dados
@@ -46,7 +74,13 @@ app.post('/cadastro', (req, res) => {
     const senha = req.body.senha;
 
     // Insere os dados na tabela users
-    inserirEmpresa(nome_empresa, cnpj_empresa, telefone_empresa, email_empresa,senha, res);
+    inserirEmpresa(nome_empresa, cnpj_empresa, telefone_empresa, email_empresa, senha, res);
+});
+
+app.post('/login', (req, res) => {
+    const email = req.body.email;
+    const senha = req.body.password;
+    verificarLogin(email, senha, res);
 });
 
 // Rota para servir a página de cadastro

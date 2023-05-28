@@ -9,7 +9,7 @@
   <body>
     <div class="login-box">
       <h1>Login</h1>
-      <form method="POST">
+      <form method="POST" action="/login">
         <div class="textbox">
           <i class="fas fa-envelope"></i>
           <input type="email" placeholder="Email" name="email" required>
@@ -21,7 +21,16 @@
         <input type="submit" class="btn" value="Login">
       </form>
       <div class="links">
-        <a href="../pagina_cadastro/signup_page.html">Cadastrar</a> | <a href="#">Esqueceu a senha?</a>
+        <a href="/cadastro_pagina" id="signup-button">Cadastrar</a>
+        <script>
+          // Redirecionar para a página de cadastro ao clicar no botão
+          const loginButton = document.getElementById('signup-button');
+          loginButton.addEventListener('click', function (event) {
+              event.preventDefault(); // Impede que o link funcione como uma âncora
+              window.location.href = '/cadastro_pagina'; // Redireciona para a página de cadastro
+          });
+      </script>
+        <a href="#">Esqueceu a senha?</a>
       </div>
       <div class="social-icons">
         <a href="#"><i class="fab fa-instagram"></i></a>
