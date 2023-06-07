@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Login Page</title>
-    <link rel="stylesheet" type="text/css" href="login_page_style.css">
-    <script src="https://kit.fontawesome.com/05e97a8a42.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/05e97a8a42.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div class="login-box">
-      <h1>Login</h1>
-      <form method="POST" action="/login">
-        <div class="textbox">
-          <i class="fas fa-envelope"></i>
-          <input type="email" placeholder="Email" name="email" required>
-        </div>
-        <div class="textbox">
-          <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Senha" name="password" required>
-        </div>
-        <input type="submit" class="btn" value="Login">
-      </form>
-      <div class="links">
-        <a href="/cadastro_pagina" id="signup-button">Cadastrar</a>
-        <script>
-          // Redirecionar para a página de cadastro ao clicar no botão
-          const loginButton = document.getElementById('signup-button');
-          loginButton.addEventListener('click', function (event) {
-              event.preventDefault(); // Impede que o link funcione como uma âncora
-              window.location.href = '/cadastro_pagina'; // Redireciona para a página de cadastro
-          });
+
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" href="login_page_style.css">
+  <script src="https://kit.fontawesome.com/05e97a8a42.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/05e97a8a42.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="login-box">
+    <h1>Login</h1>
+    <form method="POST" action="/login">
+      <div class="textbox">
+        <i class="fas fa-envelope"></i>
+        <input type="email" placeholder="Email" name="email" required>
+      </div>
+      <div class="textbox">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Senha" name="password" required>
+      </div>
+      <input type="submit" class="btn" value="Login" id="login-button">
+    </form>
+    <div class="links">
+      <a href="/cadastro_pagina" id="signup-button">Cadastrar</a>
+      <script>
+        // Redirecionar para a página de cadastro ao clicar no botão
+        const signupButton = document.getElementById('signup-button');
+        signupButton.addEventListener('click', function (event) {
+          event.preventDefault(); // Impede que o link funcione como uma âncora
+          window.location.href = '/cadastro_pagina'; // Redireciona para a página de cadastro
+        });
       </script>
-        <a href="#">Esqueceu a senha?</a>
-      </div>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
+      <a href="#">Esqueceu a senha?</a>
     </div>
-  </body>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</body>
+
 </html>
