@@ -1,6 +1,6 @@
 // Importando módulos necessários
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const path = require('path');
@@ -21,10 +21,10 @@ app.use(session({
 
 // Configuração do banco de dados
 const db = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'joao',
-    password: 'root',
-    database: 'empresa'
+    host: 'localhost',
+    user: 'root',
+    password: 'Joao1310',
+    database: 'empresas'
 });
 
 // Conectando ao banco de dados
