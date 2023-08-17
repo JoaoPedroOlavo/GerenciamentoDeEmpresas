@@ -5,30 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="pagina_principal_stylee.css">
-    <script src="https://kit.fontawesome.com/05e97a8a42.js" crossorigin="anonymous"></script>
     <title>Pagina Principal</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="pagina_principal_stylee.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/05e97a8a42.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
+
+    <!-- Sidebar -->
     <div class="sidebar">
+
         <div class="top">
             <a href="#"><i class="fas fa-user"></i></a>
         </div>
+
         <div class="middle">
             <a href="#"><i class="fas fa-chart-line"></i></a>
             <a href="#"><i class="fas fa-truck"></i></a>
             <a href="#"><i class="fas fa-users"></i></a>
         </div>
+
         <div class="bottom">
             <a href="/logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>
-        
+
     </div>
 
+    <!-- Welcome Message -->
     <div class="welcome-message">
         Welcome, <%= companyName %>
     </div>
+
+    <!-- Add div to hold boxes -->
+    <div class="boxes-container">
+
+        <div class="boxes">
+
+            <div class="box" style="border: 1px solid rgb(255, 0, 0);">
+                <h3>Financeiro</h3>
+                <p class="box-text">Text for Box 1</p>
+            </div>
+
+            <div class="box" style="border: 1px solid rgb(186, 250, 9);">
+                <h3>RH</h3>
+                <p class="box-text">Text for Box 2</p>
+            </div>
+
+            <div class="box" style="border: 1px solid rgb(0, 0, 255);">
+                <h3>Logistica</h3>
+                <p class="box-text">Text for Box 3</p>
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
 
 </html>
