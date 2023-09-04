@@ -4,11 +4,11 @@
     box-sizing: border-box;
     font-family: sans-serif;
   }
-  
+
   body {
     background: white;
   }
-  
+
   .login-box {
     width: 400px;
     height: 500px;
@@ -22,83 +22,90 @@
     padding: 50px;
     border-radius: 10px;
   }
-  
+
   .login-box h1 {
     text-align: center;
     font-size: 40px;
     margin-bottom: 50px;
   }
-  
-  .textbox {
-    width: 100%;
-    overflow: hidden;
-    font-size: 20px;
-    padding: 8px 0;
-    margin: 8px 0;
-    border-bottom: 1px solid #333;
-  }
-  
-  .textbox i {
-    width: 26px;
-    float: left;
-    text-align: center;
-  }
-  
-  .textbox input {
-    border: none;
-    outline: none;
-    background: none;
-    color: #000;
-    font-size: 18px;
-    width: 80%;
-    float: left;
-    margin: 0 10px;
-  }
-  
-  .btn {
-    width: 100%;
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 30px;
-  }
-  
-  .btn:hover {
-    background: #333;
-  }
-  
-  .links {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  .links a {
-    color: #000;
-    text-decoration: none;
-  }
-  
-  .links a:hover {
-    text-decoration: underline;
-  }
-  
-  .social-icons {
-    margin-top: 30px;
-    text-align: center;
-  }
-  
-  .social-icons a {
-    color: #000;
-    margin: 0 10px;
-    font-size: 24px;
-    transition: transform 0.3s ease;
-  }
-  
-  .social-icons a:hover {
-    transform: translateY(-5px);
-  }
-  
+
+.textbox {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.textbox input {
+  width: 100%;
+  padding: 12px 20px 12px 50px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  background: #f8f8f8;
+}
+
+.textbox i {
+  position: absolute;
+  left: 20px;
+  top: 14px;
+  color: #aaa;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 40px;
+  border: 2px solid #007bff;
+  border-radius: 25px;
+  background: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover {
+  background: #0062cc;
+}
+
+.links {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a {
+  color: #007bff;
+  text-decoration: none;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 2px;
+  border-radius: 3px;
+}
+
+.links a:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+.social-icons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  background-color: #f1f1f1;
+  color: #666;
+  border-radius: 50%;
+  margin: 0 10px;
+  font-size: 1.2em;
+  line-height: 36px;
+  text-align: center;
+}
+
+.social-icons a:hover {
+  background-color: #007bff;
+  color: #fff;
+}

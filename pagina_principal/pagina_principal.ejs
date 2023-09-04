@@ -17,24 +17,32 @@
 
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
+<!-- Sidebar -->
+<div class="sidebar">
 
-        <div class="top">
-            <a href="#"><i class="fas fa-user"></i></a>
-        </div>
-
-        <div class="middle">
-            <a href="#"><i class="fas fa-chart-line"></i></a>
-            <a href="#"><i class="fas fa-truck"></i></a>
-            <a href="#"><i class="fas fa-users"></i></a>
-        </div>
-
-        <div class="bottom">
-            <a href="/logout"><i class="fas fa-sign-out-alt"></i></a>
-        </div>
-
+    <div class="top">
+        <a href="#"><i class="fas fa-user"></i></a>
     </div>
+
+    <div class="middle">
+        <a href="#"><i class="fas fa-chart-line"></i></a>
+        <a href="#"><i class="fas fa-truck"></i></a>
+        <a href="#"><i class="fas fa-users"></i></a>
+    </div>
+
+    <div class="bottom">
+        <a href="/logout" id="logout-button"><i class="fas fa-sign-out-alt"></i></a>
+        <script>
+            // Redirecionar para a página de login ao clicar no botão
+            const loginButton = document.getElementById('logout-button');
+            loginButton.addEventListener('click', function (event) {
+                event.preventDefault(); // Impede que o link funcione como uma âncora
+                window.location.href = '/login_pagina'; // Redireciona para a página de login
+            });
+        </script>
+    </div>
+
+</div>
 
     <!-- Welcome Message -->
     <div class="welcome-message">
@@ -46,17 +54,17 @@
 
         <div class="boxes">
 
-            <div class="box" style="border: 1px solid rgb(255, 0, 0);">
+            <div class="box" style="background: #333;">
                 <h3>Financeiro</h3>
                 <p class="box-text">Text for Box 1</p>
             </div>
 
-            <div class="box" style="border: 1px solid rgb(186, 250, 9);">
+            <div class="box" style="background: #333;">
                 <h3>RH</h3>
                 <p class="box-text">Text for Box 2</p>
             </div>
 
-            <div class="box" style="border: 1px solid rgb(0, 0, 255);">
+            <div class="box" style="background: #333;">
                 <h3>Logistica</h3>
                 <p class="box-text">Text for Box 3</p>
             </div>
