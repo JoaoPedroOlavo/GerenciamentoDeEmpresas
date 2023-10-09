@@ -21,7 +21,15 @@
 <div class="sidebar">
 
     <div class="top">
-        <a href="#"><i class="fas fa-user"></i></a>
+        <a href="/perfil_pagina" id="perfil"><i class="fas fa-user"></i></a>
+        <script>
+            // Redirecionar para a página de perfil ao clicar no botão
+            const perfil = document.getElementById('perfel');
+            perfil.addEventListener('click', function (event) {
+                event.preventDefault(); // Impede que o link funcione como uma âncora
+                window.location.href = '/perfil_pagina'; // Redireciona para a página de perfil
+            });
+        </script>
     </div>
 
     <div class="middle">

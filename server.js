@@ -9,9 +9,6 @@ const path = require('path');
 const saltRounds = 10;
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '/'));
-
 // Configuração da sessão
 app.use(session({
     secret: 'your_secret_key',
@@ -33,12 +30,19 @@ db.connect((err) => {
     console.log('Conectado ao banco de dados');
 });
 
-// Usando middlewares
+// Configuração do template engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/'));
+
+// Middleware para análise de solicitações POST
 app.use(express.urlencoded({ extended: true }));
+
+// Middleware para servir arquivos estáticos
 app.use(express.static('pagina_cadastro'));
 app.use(express.static('pagina_inicial'));
 app.use(express.static('pagina_login'));
 app.use(express.static('pagina_principal'));
+app.use(express.static('pagina_perfil'))
 
 // Funções para manipular o banco de dados
 function inserirEmpresa(nome_empresa, cnpj_empresa, telefone_empresa, email_empresa, senha, res) {
@@ -99,28 +103,63 @@ app.post('/login', (req, res) => {
     verificarLogin(email, senha, req, res);
 });
 
+// Rota para página de cadastro
 app.get('/cadastro_pagina', (req, res) => {
     res.sendFile(__dirname + '/pagina_cadastro/signup_page.html');
 });
 
+// Rota para página inicial
 app.get('/inicio_pagina', (req, res) => {
     res.sendFile(__dirname + '/pagina_inicial/initial_page.html');
 });
 
+// Rota para página de login
 app.get('/login_pagina', (req, res) => {
     res.sendFile(__dirname + '/pagina_login/login_page.html');
 });
 
+// Rota para página principal
 app.get('/principal_pagina', (req, res) => {
     res.render('pagina_principal/pagina_principal', { companyName: req.session.companyName });
 });
 
+// Rota para logout
 app.get('/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) throw err;
         res.redirect('/login_pagina');
     });
 });
+
+// Rota para a página de perfil
+app.get('/perfil_pagina', (req, res) => {
+    // Verifique se o usuário está logado
+    if (!req.session.companyName) {
+        res.redirect('/login_pagina');
+        return;
+    }
+
+    // Consulte o banco de dados para obter os detalhes do perfil da empresa
+    const companyName = req.session.companyName;
+    const query = "SELECT * FROM empresas WHERE nome_empresa = ?;";
+    db.query(query, [companyName], (err, results) => {
+        if (err) {
+            throw err;
+        }
+
+        if (results.length > 0) {
+            const companyDetails = results[0]; // Detalhes da empresa
+
+            // Renderize a página de perfil na pasta 'pagina_perfil' e passe os detalhes da empresa para a página
+            res.render('pagina_perfil/pagina_perfil', { companyDetails });
+        } else {
+            console.log("Empresa não encontrada!");
+            res.send('Empresa não encontrada!');
+        }
+    });
+});
+
+
 
 // Iniciando o servidor
 app.listen(3000, () => {

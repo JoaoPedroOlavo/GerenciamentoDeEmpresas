@@ -1,0 +1,71 @@
+/* estilo.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #333; /* Fundo cinza claro */
+    font-family: Arial, sans-serif;
+}
+
+#navbar {
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+#logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+#logo:hover {
+    transform: scale(1.1);
+}
+
+#buttons a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+#buttons a:hover {
+    background: #007bff; /* Azul */
+    color: white;
+    opacity: 0.8;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+section {
+    background: #fff; /* Fundo branco */
+    color: #333; /* Texto preto */
+    padding: 2rem;
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600; /* Negrito */
+    margin-bottom: 1rem; /* Espaçamento inferior */
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 1rem 0; /* Espaçamento superior e inferior */
+}
+
+span {
+    font-weight: bold; /* Texto em negrito */
+}
