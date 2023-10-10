@@ -24,7 +24,7 @@
         <a href="/perfil_pagina" id="perfil"><i class="fas fa-user"></i></a>
         <script>
             // Redirecionar para a página de perfil ao clicar no botão
-            const perfil = document.getElementById('perfel');
+            const perfil = document.getElementById('perfil');
             perfil.addEventListener('click', function (event) {
                 event.preventDefault(); // Impede que o link funcione como uma âncora
                 window.location.href = '/perfil_pagina'; // Redireciona para a página de perfil
@@ -33,9 +33,33 @@
     </div>
 
     <div class="middle">
-        <a href="#"><i class="fas fa-chart-line"></i></a>
-        <a href="#"><i class="fas fa-truck"></i></a>
-        <a href="#"><i class="fas fa-users"></i></a>
+        <a href="/financeiro_pagina" id="financeiro"><i class="fas fa-chart-line"></i></a>
+        <script>
+            // Redirecionar para a página de perfil ao clicar no botão
+            const financeiro = document.getElementById('financeiro');
+            financeiro.addEventListener('click', function (event) {
+                event.preventDefault(); // Impede que o link funcione como uma âncora
+                window.location.href = '/financeiro_pagina'; // Redireciona para a página de perfil
+            });
+        </script>
+        <a href="/logistica_pagina" id="logistica"><i class="fas fa-truck"></i></a>
+        <script>
+            // Redirecionar para a página de perfil ao clicar no botão
+            const logistica = document.getElementById('logistica');
+            logistica.addEventListener('click', function (event) {
+                event.preventDefault(); // Impede que o link funcione como uma âncora
+                window.location.href = '/logistica_pagina'; // Redireciona para a página de perfil
+            });
+        </script>
+        <a href="/rh_pagina" id="rh"><i class="fas fa-users"></i></a>
+        <script>
+            // Redirecionar para a página de perfil ao clicar no botão
+            const rh = document.getElementById('rh');
+            rh.addEventListener('click', function (event) {
+                event.preventDefault(); // Impede que o link funcione como uma âncora
+                window.location.href = '/rh_pagina'; // Redireciona para a página de perfil
+            });
+        </script>
     </div>
 
     <div class="bottom">
@@ -61,21 +85,26 @@
     <div class="boxes-container">
 
         <div class="boxes">
-
+            <a href="/financeiro_pagina">
             <div class="box" style="background: #333;">
                 <h3>Financeiro</h3>
                 <p class="box-text">Text for Box 1</p>
             </div>
-
+            </a>
+            
+            <a href="/rh_pagina">
             <div class="box" style="background: #333;">
                 <h3>RH</h3>
                 <p class="box-text">Text for Box 2</p>
             </div>
+            </a>
 
+            <a href="/logistica_pagina">
             <div class="box" style="background: #333;">
                 <h3>Logistica</h3>
                 <p class="box-text">Text for Box 3</p>
             </div>
+            </a>
 
         </div>
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pagina_rh.css">
+    <title>Funcionários</title>
+    <script src="funcoes.js"></script>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function demitirFuncionario(idFuncionario) {
+            // Faça a solicitação DELETE quando o botão de demissão for clicado
+            axios.delete(`/demitir_funcionario/${idFuncionario}`)
+                .then(response => {
+                    console.log("Funcionário demitido com sucesso!");
+                    // Atualize a página para refletir a demissão ou faça o que for apropriado
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error("Erro ao demitir o funcionário", error);
+                });
+        }
+    </script>
+
+    <h1>
+        <%= companyName %>
+    </h1>
+    <ul>
+        <% funcionarios.forEach((funcionario)=> { %>
+            <li>
+                <p>Data de Admissão: <%= funcionario.data_admissao.toLocaleDateString('pt-BR') %>
+                </p>
+                <p>Nome: <%= funcionario.nome %>
+                </p>
+                <p>Idade: <%= funcionario.idade %>
+                </p>
+                <p>Setor: <%= funcionario.setor %>
+                </p>
+                <p>Email: <%= funcionario.email_funcionario %>
+                </p>
+                <p>CPF: <%= funcionario.cpf %>
+                </p>
+                <!-- Use um botão com JavaScript para acionar uma solicitação DELETE -->
+                <button class="botao-demitir" onclick="demitirFuncionario('<%= funcionario.id %>')">Demitir
+                    Funcionário</button>
+            </li>
+            <% }); %>
+    </ul>
+
+    <a class="botao-voltar" href="/rh_pagina">Voltar</a>
+    <a class="botao-cadastrar" href="/cadastro_funcionario">Cadastrar Novo Funcionário</a>
+</body>
+
+</html>
