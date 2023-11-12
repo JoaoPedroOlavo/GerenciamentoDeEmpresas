@@ -1,0 +1,56 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #333; /* Cor de fundo cinza claro */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #007bff; /* Azul brilhante */
+}
+
+.dados-financeiros {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead th, tbody td {
+    border: 1px solid #dee2e6; /* Cinza claro */
+    padding: 12px;
+    text-align: left;
+    color: white;
+}
+
+thead th {
+    background-color: #007bff; /* Azul brilhante */
+    color: #fff;
+}
+
+tbody tr:hover {
+    background-color: #000; /* Cinza mais escuro ao passar o mouse */
+}
+
+canvas {
+    margin-top: 20px;
+}
+
+/* Estilo para gráficos */
+.chart-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+}

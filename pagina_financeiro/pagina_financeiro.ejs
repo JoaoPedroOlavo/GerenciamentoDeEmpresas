@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Financeiro</title>
+    <link rel="stylesheet" type="text/css" href="pagina_financeiro.css"> <!-- Adicione este link para o CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Transações Financeiras para <%= companyName %></h1>
+
+        <div class="dados-financeiros">
+            <% if (dadosFinanceiros && dadosFinanceiros.length > 0) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Total de Transações</th>
+                            <th>Total de Transações em Crédito</th>
+                            <th>Total de Transações em Débito</th>
+                            <th>Total de Transações em Dinheiro</th>
+                            <th>Total de Transações em Outra Forma</th>
+                            <th>Total de Transações no Último Dia</th>
+                            <!-- Adicione mais colunas conforme necessário -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= totalTransacoes %></td>
+                            <td><%= totalCredito %></td>
+                            <td><%= totalDebito %></td>
+                            <td><%= totalDinheiro %></td>
+                            <td><%= totalOutraForma %></td>
+                            <td><%= totalUltimoDia %></td>
+                            <!-- Adicione mais células conforme necessário -->
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Descrição</th>
+                            <th>Local</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% dadosFinanceiros.forEach(transacao => { %>
+                            <tr>
+                                <td><%= transacao.id_transacao %></td>
+                                <td><%= transacao.data_transacao %></td>
+                                <td><%= transacao.tipo_transacao %></td>
+                                <td><%= transacao.valor_transacao %></td>
+                                <td><%= transacao.descricao_transacao %></td>
+                                <td><%= transacao.local_transacao %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>Nenhuma transação financeira disponível.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

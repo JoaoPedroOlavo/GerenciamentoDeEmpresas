@@ -36,6 +36,38 @@ app.use(express.static('pagina_login'));
 app.use(express.static('pagina_principal'));
 app.use(express.static('pagina_perfil'));
 app.use(express.static('pagina_rh'));
+app.use(express.static('pagina_financeiro'))
+app.use(express.static('public'))
+app.use(express.static('pagina_logistica'))
+
+function getDadosLogistica(companyName) {
+    const query = "SELECT * FROM logistica WHERE id_empresa = (SELECT id FROM empresas WHERE nome_empresa = ?);";
+
+    return new Promise((resolve, reject) => {
+        db.query(query, [companyName], (err, results) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+}
+
+function getDadosFinanceiros(companyName) {
+    const query = "SELECT * FROM transacoes WHERE id_empresa = (SELECT id FROM empresas WHERE nome_empresa = ?);";
+
+    return new Promise((resolve, reject) => {
+        db.query(query, [companyName], (err, results) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+}
+
 
 function inserirEmpresa(nome_empresa, cnpj_empresa, telefone_empresa, email_empresa, senha, res) {
     bcrypt.hash(senha, saltRounds, function (err, hash) {
@@ -120,13 +152,75 @@ app.get('/rh_pagina', (req, res) => {
     });
 });
 
-app.get('/financeiro_pagina', (req, res) => {
-    res.sendFile(__dirname + '/pagina_financeiro/pagina_financeiro.html');
+app.get('/financeiro_pagina', async (req, res) => {
+    if (!req.session.companyName) {
+        res.redirect('/login_pagina');
+        return;
+    }
+
+    try {
+        // Aqui você pode chamar a função para obter dados financeiros
+        // Vou chamar a função getDadosFinanceiros que iremos criar.
+        const dadosFinanceiros = await getDadosFinanceiros(req.session.companyName);
+        // Cálculos para totais
+        console.log('Dados Financeiros:', dadosFinanceiros);
+        console.log('Tipos de Transações:', dadosFinanceiros.map(transacao => transacao.tipo_transacao));
+
+        const totalTransacoes = dadosFinanceiros.length;
+        const transacoesCredito = dadosFinanceiros.filter(transacao => transacao.tipo_transacao === 'Credito');
+        const transacoesDebito = dadosFinanceiros.filter(transacao => transacao.tipo_transacao === 'Debito');
+        const transacoesDinheiro = dadosFinanceiros.filter(transacao => transacao.tipo_transacao === 'Dinheiro');
+        const transacoesOutraForma = dadosFinanceiros.filter(transacao => transacao.tipo_transacao === 'Outra Forma');
+
+        console.log('Transações de Crédito:', transacoesCredito);
+        console.log('Transações de Débito:', transacoesDebito);
+        console.log('Transações em Dinheiro:', transacoesDinheiro);
+        console.log('Transações em Outra Forma:', transacoesOutraForma);
+
+        const totalCredito = transacoesCredito.length;
+        const totalDebito = transacoesDebito.length;
+        const totalDinheiro = transacoesDinheiro.length;
+        const totalOutraForma = transacoesOutraForma.length;
+
+        // Calcular o total de transações no último dia
+        const hoje = new Date();
+        const ontem = new Date(hoje);
+        ontem.setDate(hoje.getDate() - 1);
+        const transacoesUltimoDia = dadosFinanceiros.filter(transacao => {
+            const dataTransacao = new Date(transacao.data_transacao);
+            return dataTransacao >= ontem && dataTransacao < hoje;
+        });
+
+        console.log('Transações no Último Dia:', transacoesUltimoDia);
+
+        const totalUltimoDia = transacoesUltimoDia.length;
+
+        // Passar os totais para o template
+        res.render('pagina_financeiro/pagina_financeiro', { companyName: req.session.companyName, dadosFinanceiros, totalTransacoes, totalCredito, totalDebito, totalDinheiro, totalOutraForma, totalUltimoDia });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro ao obter dados financeiros');
+    }
 });
 
-app.get('/logistica_pagina', (req, res) => {
-    res.sendFile(__dirname + '/pagina_logistica/pagina_logistica.html');
+
+app.get('/logistica_pagina', async (req, res) => {
+    if (!req.session.companyName) {
+        res.redirect('/login_pagina');
+        return;
+    }
+
+    try {
+        const dadosLogistica = await getDadosLogistica(req.session.companyName);
+        res.render('pagina_logistica/pagina_logistica', { companyName: req.session.companyName, dadosLogistica });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro ao obter dados de logística');
+    }
 });
+
+
 
 app.get('/principal_pagina', (req, res) => {
     if (!req.session.companyName) {

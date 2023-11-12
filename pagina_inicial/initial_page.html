@@ -35,7 +35,15 @@
         <div id="header">
             <h1 alt="Gerenciamento de Empresas">Gerenciamento de Empresas</h1>
             <p>Uma solução completa para sua empresa</p>
-            <a href="../pagina_cadastro/signup_page.html" id="button">Cadastre-se</a>
+            <a id="cadastro" href="/cadastro_pagina" id="button">Cadastre-se</a>
+            <script>
+                // Redirecionar para a página de login ao clicar no botão
+                const cadastro = document.getElementById('cadastro');
+                cadastro.addEventListener('click', function (event) {
+                    event.preventDefault(); // Impede que o link funcione como uma âncora
+                    window.location.href = '/cadastro_pagina'; // Redireciona para a página de login
+                });
+            </script>
         </div>
     </header>
 

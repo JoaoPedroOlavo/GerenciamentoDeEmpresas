@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistica</title>
+    <link rel="stylesheet" type="text/css" href="pagina_logistica.css"> <!-- Adicione um arquivo de estilo se necessário -->
+</head>
+<body>
+    <h1>Logística - <%= companyName %></h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Quantidade</th>
+                <th>Valor Produto</th>
+                <th>ID Empresa</th>
+                <th>Nome do Produto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% dadosLogistica.forEach((produto) => { %>
+                <tr>
+                    <td><%= produto.id_produto %></td>
+                    <td><%= produto.quantidade %></td>
+                    <td><%= parseFloat(produto.valor_produto).toFixed(2) %></td>
+                    <td><%= produto.id_empresa %></td>
+                    <td><%= produto.nome_do_produto %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
