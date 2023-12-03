@@ -1,0 +1,1 @@
+Projeto com textos fictícios na tela inicial, usados apensas para demonstração e o projeto possui algumas análises financeira em forma de tabelas, funcionalidades de RH que com o passar do tempo teria mais mecânicas e também algumas análises logísticas que ajudariam nas empresas que precisassem.
